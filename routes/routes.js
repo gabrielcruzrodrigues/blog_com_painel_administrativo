@@ -1,6 +1,8 @@
 const express = require('express');
 const CategoriesController = require('../controllers/CategoriesController');
 const ArticlesController = require('../controllers/ArticlesController');
+const ArticleModel = require('../model/ArticleModel');
+const CategoryModel = require('../model/CategoryModel');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -9,6 +11,7 @@ router.get('/', (req, res) => {
 
 //categories
 router.get('/categories', CategoriesController.categories);
+router.get('/admin/categories/new', CategoriesController.createCategory);
 
 //articles
 router.get('/articles', ArticlesController.articles);

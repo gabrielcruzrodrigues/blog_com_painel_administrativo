@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
 //categories
 router.get('/categories', CategoriesController.categories);
 router.post('/categories/save', CategoriesController.save)
+router.post('/categories/delete', CategoriesController.delete);
 
 //categories Admin
 router.get('/admin/categories/new', CategoriesController.createCategory);

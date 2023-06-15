@@ -7,7 +7,7 @@ exports.categories = (req, res) => {
 
 exports.createCategory = (req, res) => {
     res.render('admin/categories/new');  
-}
+};
 
 exports.save = (req, res) => {
     const title = req.body.title;
@@ -23,4 +23,11 @@ exports.save = (req, res) => {
     } else {
         res.redirect('admin/categories/new');
     }
-}
+};
+
+exports.AdmCategories = (req, res) => {
+    CategoryModel.findAll().then((categories) => {
+        res.render('admin/categories/index', { categories:categories });
+    })
+    
+};

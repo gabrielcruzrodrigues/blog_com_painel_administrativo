@@ -11,9 +11,11 @@ router.get('/', (req, res) => {
 
 //categories
 router.get('/categories', CategoriesController.categories);
-router.get('/admin/categories/new', CategoriesController.createCategory);
-console.log('entrou no arquivo rotas')
 router.post('/categories/save', CategoriesController.save)
+
+//categories Admin
+router.get('/admin/categories/new', CategoriesController.createCategory);
+router.get('/admin/categories', CategoriesController.AdmCategories);
 
 //articles
 router.get('/articles', ArticlesController.articles);

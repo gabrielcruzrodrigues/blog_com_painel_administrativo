@@ -17,6 +17,8 @@ router.post('/categories/delete', CategoriesController.delete);
 //categories Admin
 router.get('/admin/categories/new', CategoriesController.createCategory);
 router.get('/admin/categories', CategoriesController.AdmCategories);
+router.get('/admin/categories/edit/:id', CategoriesController.edit);
+router.post('/categories/update', CategoriesController.update);
 
 //articles
 router.get('/articles', ArticlesController.articles);

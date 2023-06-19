@@ -18,7 +18,7 @@ exports.save = (req, res) => {
             slug: slugify(title)
         })
             .then(() => {
-                res.redirect('/');
+                res.redirect('/admin/categories');
             })
     } else {
         res.redirect('/admin/categories/new');
@@ -35,7 +35,7 @@ exports.delete = (req, res) => {
                     id: id
                 }
             }).then(() => {
-                res.redirect('/admin/categories');    
+                res.redirect('/admin/categories');
             })
         } else {
             res.redirect('/admin/categories');
@@ -43,6 +43,40 @@ exports.delete = (req, res) => {
     } else {
         res.redirect('/admin/categories');
     };
+};
+
+exports.edit = (req, res) => {
+    const id = req.params.id;
+
+    if (isNaN(id)) {
+        res.redirect('/admin/categories')
+    };
+    CategoryModel.findByPk(id)
+        .then((category) => {
+            if (category != undefined) {
+                res.render('admin/categories/edit', { category: category });
+            } else {
+                res.redirect('/admin/categories');
+            };
+        })
+        .catch((error) => {
+            console.log(error);
+            res.redirect('/admin/categories');
+        });
+};
+
+exports.update = (req, res) => {
+    const id = req.body.id;
+    const title = req.body.title;
+
+    CategoryModel.update({title: title}), {
+        where: {
+            id: id
+        }
+    }
+    .then(() => {
+        res.redirect('/admin/categories');
+    });
 };
 
 exports.AdmCategories = (req, res) => {

@@ -1,11 +1,33 @@
-<nav class="navbar navbar-dark bg-primary">
-    <a style="margin-left: 10px;" class="navbar-brand" href="/">
-        Gabriel Blog
-    </a>
-
-    <ul class="navbar-nav me-auto ">
-        <li class="nav-item">
-            <a href="/admin/categories" class="nav-link">Categorias</a>
-        </li>
-    </ul>
-</nav>  
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Blog Gabriel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/admin/categories">Categorias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/admin/produtos">Artigos</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Cadastrar 
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/admin/categories/new">Nova categoria</a></li>
+              <li><a class="dropdown-item" href="/articles/admin/new">Novo artigo</a></li>
+              <!-- <li><hr class="dropdown-divider"></li> -->
+              
+            </ul>
+          </li>
+        </ul>
+        <form action="/admin/pesquisa" method="post" class="d-flex">
+          <input class="form-control me-2" type="search" name="nome" placeholder="Buscar..." aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+        </form>
+      </div>
+    </div>
+  </nav>

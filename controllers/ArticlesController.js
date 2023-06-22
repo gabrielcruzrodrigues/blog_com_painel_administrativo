@@ -9,4 +9,4 @@ exports.createArticle = (req, res) => {
     CategoryModel.findAll().then((categories) => {
         res.render('admin/articles/new', { categories: categories });
     })
-}
+}       

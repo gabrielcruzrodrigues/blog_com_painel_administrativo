@@ -21,7 +21,8 @@ router.get('/admin/categories/edit/:id', CategoriesController.edit);
 router.post('/categories/update', CategoriesController.update);
 
 //articles
-router.get('/articles', ArticlesController.articles);
+router.get('/admin/articles', ArticlesController.articles);
+router.post('/articles/save', ArticlesController.create);
 
 //articles Admin
 router.get('/articles/admin/new', ArticlesController.createArticle);

@@ -11,6 +11,6 @@ const Category = connection.define('categories', {
     }
 });
 
-// Category.sync({force: true});
+// Category.sync({force: true}); // rodar toda vez que for usar um novo banco de dados
 
 module.exports = Category;

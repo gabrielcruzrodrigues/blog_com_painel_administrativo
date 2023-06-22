@@ -72,7 +72,7 @@ exports.update = (req, res) => {
     CategoryModel.update(
         {title: title, slug: slugify(title)}, 
         {where: {id: id}}
-    )
+    )   
     .then(() => {
         res.redirect('/admin/categories');
     });

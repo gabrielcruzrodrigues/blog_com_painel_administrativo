@@ -22,4 +22,7 @@ router.post('/categories/update', CategoriesController.update);
 
 //articles
 router.get('/articles', ArticlesController.articles);
+
+//articles Admin
+router.get('/articles/admin/new', ArticlesController.createArticle);
 module.exports = router;

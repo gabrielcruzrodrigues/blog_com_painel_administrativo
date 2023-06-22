@@ -1,9 +1,12 @@
 const ArticlesModel = require('../model/ArticleModel');
+const CategoryModel = require('../model/CategoryModel');
 
 exports.articles = (req, res) => {
     res.send('articles');
 }
 
 exports.createArticle = (req, res) => {
-    res.render('admin/articles/new');
+    CategoryModel.findAll().then((categories) => {
+        res.render('admin/articles/new', { categories: categories });
+    })
 }

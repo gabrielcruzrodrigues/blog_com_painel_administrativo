@@ -46,7 +46,7 @@ exports.delete = (req, res) => {
 };
 
 exports.edit = (req, res) => {
-    const id = req.params.id;
+    const id = req.params.id;   
 
     if (isNaN(id)) {
         res.redirect('/admin/categories')
@@ -69,11 +69,10 @@ exports.update = (req, res) => {
     const id = req.body.id;
     const title = req.body.title;
 
-    CategoryModel.update({title: title}), {
-        where: {
-            id: id
-        }
-    }
+    CategoryModel.update(
+        {title: title, slug: slugify(title)}, 
+        {where: {id: id}}
+    )
     .then(() => {
         res.redirect('/admin/categories');
     });

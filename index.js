@@ -4,8 +4,6 @@ const database = require('./db/database.js');
 const app = express();
 const port = 3000;
 
-
-
 database.authenticate()
 .then(() => {
     console.log('connection made successfully');

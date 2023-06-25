@@ -4,7 +4,10 @@ const slugfy = require('slugify');
 
 
 exports.articles = (req, res) => {
-    res.send('articles');
+    ArticlesModel.findAll().then((articles) => {
+        res.render('admin/articles/index', {articles: articles});
+    });
+    
 };
 
 exports.createArticle = (req, res) => {

@@ -1,4 +1,28 @@
 <%- include ("partials/header.ejs") %>
-<%- include ("partials/nav.ejs") %>
-<h1>Hello word!</h1>
+<%- include ("partials/homeNav.ejs") %>
+
+<div class="container">
+    <br>
+    <div class="text-bg-secondary p-3">
+        <h1 class="display-4" style="text-align: center;">Blog do Gabriel</h1>
+        <p class="lead" style="text-align: center;">Seja muito bem vindo!</p>
+        <hr class="my-4">
+        <p class="lead" style="text-align: center;">Este blog foi criado com o intuito de mostrar minhas habilidades 
+        com o backend, divirta-se!</p>
+
+    </div>
+
+    <% articles.forEach((article) => { %>
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <h2><%= article.title %></h2>   
+            </div>
+            <div class="card-body">
+                <a class="btn btn-success" href="">Ler artigo</a>
+            </div>
+        </div>
+    <% }); %>
+</div>
+
 <%- include ("partials/footer.ejs") %>

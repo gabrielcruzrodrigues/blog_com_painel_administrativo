@@ -2,13 +2,36 @@ const ArticlesModel = require('../model/ArticleModel');
 const CategoryModel = require('../model/CategoryModel');
 const slugfy = require('slugify');
 
+exports.home = (req, res) => {
+    ArticlesModel.findAll().then((articles) => {
+        res.render('index', {articles: articles});
+    });
+};
 
 exports.articles = (req, res) => {
-    ArticlesModel.findAll().then((articles) => {
+    ArticlesModel.findAll({
+        include: [{model: CategoryModel}]
+    }).then((articles) => {
         res.render('admin/articles/index', {articles: articles});
     });
-    
 };
+
+exports.article = (req, res) => {
+    const slug = req.params.slug;
+    ArticlesModel.findOne({
+        where: {
+            slug: slug
+        }
+    }).then((article) => {
+        if (article != undefined) {
+            res.render('article', {article: article});
+        } else {
+            res.redirect('/');
+        }
+    }).catch((error) => {
+        res.redirect('/');  
+    })
+}
 
 exports.createArticle = (req, res) => {
     CategoryModel.findAll().then((categories) => {
@@ -29,4 +52,23 @@ exports.create = (req, res) => {
     }).then(() => {
         res.redirect('/admin/articles');
     })
+};
+
+exports.delete = (req, res) => {
+    const id = req.body.id;
+    if (id != undefined) {
+        if (!isNaN(id)) {
+            ArticlesModel.destroy({
+                where: {
+                    id: id
+                }
+            }).then(() => {
+                res.redirect('/admin/articles');    
+            });
+        } else {
+            res.redirect('/admin/articles');
+        };
+    } else {
+        res.redirect('/admin/articles');
+    }
 };

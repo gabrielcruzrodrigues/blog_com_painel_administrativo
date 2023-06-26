@@ -68,7 +68,10 @@ exports.searchCategory = (req, res) => {
         where: {
             slug: slug
         },
-        include: [{ model: ArticlesModel }]
+        include: [{ model: ArticlesModel }],
+        order: [
+            ['id', 'DESC']
+        ]
     }).then((category) => {
         if (category != undefined) {
             CategoryModel.findAll().then((categories) => {

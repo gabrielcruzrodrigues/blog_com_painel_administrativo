@@ -31,7 +31,10 @@
 <script src="/tinymce/tinymce.min.js"></script>
 <script>
     tinymce.init({
+        language: 'pt-BR',
         selector: "#article",
-        height: 200
+        height: 200,
+        activeEditor: true,
+        plugins: 'media save table paste emoticons preview print image',
     })
 </script>

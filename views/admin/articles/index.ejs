@@ -32,6 +32,10 @@
                                 <%= article.category.title %>
                             </td>
                             <td>
+                                <form style="display: inline;">
+                                    <a href="/admin/articles/edit/<%= article.id %>" class="btn btn-warning">Editar</a>
+                                </form> 
+
                                 <form action="/articles/delete" method="post" style="display: inline;"
                                     onsubmit="confirmDelete(event, this)">
                                     <input type="hidden" name="id" value="<%= article.id %>">

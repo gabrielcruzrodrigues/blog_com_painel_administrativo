@@ -27,4 +27,6 @@ router.post('/categories/update', CategoriesController.update);
 //articles Admin
 router.get('/admin/articles', ArticlesController.articles);
 router.get('/articles/admin/new', ArticlesController.createArticle);
+router.get('/admin/articles/edit/:id', ArticlesController.edit);
+router.post('/articles/update', (ArticlesController.update));
 module.exports = router;

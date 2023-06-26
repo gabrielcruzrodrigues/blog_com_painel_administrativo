@@ -1,3 +1,4 @@
+const Article = require('../model/ArticleModel');
 const ArticlesModel = require('../model/ArticleModel');
 const CategoryModel = require('../model/CategoryModel');
 const slugfy = require('slugify');
@@ -124,4 +125,41 @@ exports.delete = (req, res) => {
     } else {
         res.redirect('/admin/articles');
     }
+};
+
+exports.edit = (req, res) => {
+    const id = req.params.id;
+    if (isNaN(id)) {
+        res.redirect('/admin/articles');
+    };
+    ArticlesModel.findByPk(id) 
+        .then((article) => {
+            CategoryModel.findAll().then((category) => {
+                if(article != undefined) {
+                    res.render('admin/articles/edit', {article: article, categories: category});
+                } else {
+                    res.redirect('/admin/articles');
+                };
+            })
+        })
+        .catch((error) => {
+            res.redirect('/admin/categories');
+        });
+}
+
+exports.update = (req, res) => {
+    const id = req.body.id;
+    const title = req.body.title;
+    const body = req.body.body;
+    const category = req.body.category;
+
+    ArticlesModel.update(
+        {title: title, body:body, categoryId: category, slug: slugfy(title)},
+        {where: {id: id}}
+    ).then(() => {
+        res.redirect('/admin/articles');
+    }).catch((error) => {
+        console.log(error)
+        res.redirect('/');
+    });
 };

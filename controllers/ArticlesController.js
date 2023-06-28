@@ -163,3 +163,34 @@ exports.update = (req, res) => {
         res.redirect('/');
     });
 };
+
+//paginação
+exports.page = (req, res) => {
+    const page = req.params.num;
+    let offsett = 0;
+ 
+    if (isNaN(page) || page <= 1) {
+        offsett = 0;
+    } else {
+        offsett = parseInt((page) * 4) - 4;
+    }
+    console.log(offsett);
+
+    ArticlesModel.findAndCountAll({
+        limit: 4, //define a quantidades de artigos
+        offset: offsett  //define a partir de qual artigo ira começar a listagem
+    }).then((articles) => {
+        let next;
+        if (offsett + 4 >= articles.count) {
+            next = false;
+        } else {
+            next = true;
+        };
+
+        const result = {
+            articles: articles
+        }
+
+        res.json(articles);
+    });
+};

@@ -17,6 +17,7 @@ router.post('/articles/save', ArticlesController.create);
 router.post('/articles/delete', ArticlesController.delete);
 router.get('/:slug', ArticlesController.article);
 router.get('/category/:slug', ArticlesController.searchCategory)
+router.get('/articles/page/:num', ArticlesController.page); //paginação
 
 //categories Admin
 router.get('/admin/categories/new', CategoriesController.createCategory);

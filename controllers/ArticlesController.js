@@ -188,9 +188,10 @@ exports.page = (req, res) => {
         };
 
         const result = {
+            next: next,
             articles: articles
         }
 
-        res.json(articles);
+        res.json(result);
     });
 };

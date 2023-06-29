@@ -7,7 +7,8 @@ exports.home = (req, res) => {
     ArticlesModel.findAll({
         order: [
             ['id', 'DESC']
-        ]
+        ],
+        limit: 4
     }).then((articles) => {
         CategoryModel.findAll().then((categories) => {
             res.render('index', { articles: articles, categories: categories });
@@ -192,6 +193,8 @@ exports.page = (req, res) => {
             articles: articles
         }
 
-        res.json(result);
+        CategoryModel.findAll().then((categories) => {
+            res.render('admin/articles/page', {categories: categories, results: result});
+        });
     });
 };

@@ -8,7 +8,7 @@ O nome condiz com o projeto, este é um blog com painel administrativo, usando o
 - MySQL como banco de dados
 - Relacionamento entre tabelas
 
-# Como rodar o programa:
+# Como rodar o programa: 
 - Tenha o SQL ou o Xampp instalado e configurado em sua maquina
 - Crie um banco chamado `blog`
 - Tenha o Node.js instalado em sua maquina

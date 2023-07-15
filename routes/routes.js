@@ -1,8 +1,7 @@
 const express = require('express');
 const CategoriesController = require('../controllers/CategoriesController');
 const ArticlesController = require('../controllers/ArticlesController');
-const ArticleModel = require('../model/ArticleModel');
-const CategoryModel = require('../model/CategoryModel');
+const UserController = require("../controllers/UserController");
 const router = express.Router();
 
 router.get('/', ArticlesController.home);
@@ -29,5 +28,10 @@ router.post('/categories/update', CategoriesController.update);
 router.get('/admin/articles', ArticlesController.articles);
 router.get('/articles/admin/new', ArticlesController.createArticle);
 router.get('/admin/articles/edit/:id', ArticlesController.edit);
-router.post('/articles/update', (ArticlesController.update));
+router.post('/articles/update', ArticlesController.update);
 module.exports = router;
+
+//User
+router.get("/admin/users", UserController.findAll);
+router.get("/admin/users/create", UserController.pageCreate);
+router.post("/users/create", UserController.create);

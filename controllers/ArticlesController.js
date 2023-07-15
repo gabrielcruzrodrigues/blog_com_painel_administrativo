@@ -173,7 +173,7 @@ exports.page = (req, res) => {
     if (isNaN(page) || page <= 1) {
         offsett = 0;
     } else {
-        offsett = parseInt((page) * 4) - 4;
+        offsett = parseInt(((page) -1) * 4) - 4;
     }
     console.log(offsett);
 
@@ -189,6 +189,7 @@ exports.page = (req, res) => {
         };
 
         const result = {
+            page: parseInt(page),
             next: next,
             articles: articles
         }

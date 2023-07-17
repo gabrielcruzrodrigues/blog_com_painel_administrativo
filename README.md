@@ -7,6 +7,7 @@ O nome condiz com o projeto, este é um blog com painel administrativo, usando o
 - EJS como view engine
 - MySQL como banco de dados
 - Relacionamento entre tabelas
+- Sistema de login
 
 # Como rodar o programa: 
 - Tenha o SQL ou o Xampp instalado e configurado em sua maquina

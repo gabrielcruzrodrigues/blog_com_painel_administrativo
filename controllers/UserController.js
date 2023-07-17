@@ -108,7 +108,7 @@ exports.authenticate = (req, res) => {
                         id: user.id,
                         email: user.email
                     }
-                    res.json(req.session.user);
+                    res.redirect('/admin/categories');
                 } else {
                     res.redirect("/user/login");
                 }

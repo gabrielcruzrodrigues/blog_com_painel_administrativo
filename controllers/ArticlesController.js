@@ -2,6 +2,7 @@ const Article = require('../model/ArticleModel');
 const ArticlesModel = require('../model/ArticleModel');
 const CategoryModel = require('../model/CategoryModel');
 const slugfy = require('slugify');
+const adminAuth = require('../middlewars/adminAuth');   
 
 exports.home = (req, res) => {
     ArticlesModel.findAll({

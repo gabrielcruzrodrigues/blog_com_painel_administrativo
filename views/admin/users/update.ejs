@@ -1,0 +1,27 @@
+<%- include ("../../partials/header.ejs")%>
+<%- include ("../../partials/homeNav.ejs")%>
+
+<div class="container">
+
+    <div class="card mt-5">
+        <div class="card-header">
+            <h2>Edição de usuário</h2>
+        </div>
+        <div class="card-body">
+            <form class="d-grid gap-2" action="/users/update" method="post">
+                <input type="hidden" name="id" value="<%= user.id %>">
+
+                <label name="email">Digite o seu email</label>
+                <input class="form-control" name="email" type="email" value="<%= user.email %>"><br>
+
+                <label name="password">Digite a sua senha</label>
+                <input class="form-control" name="password" type="password" value="<%= user.password %>">
+                <br>
+
+                <button type="submit" class="btn btn-success">Atualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include ("../../partials/footer.ejs")%>

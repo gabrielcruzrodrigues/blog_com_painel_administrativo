@@ -45,6 +45,45 @@ exports.create = (req, res) => {
             res.redirect("/admin/users/create");
         }
     })
+}
 
+exports.edit = (req, res) => {
+    const id = req.params.id;
 
+    UserModel.findByPk(id)
+        .then((user) => {
+            CategoryModel.findAll()
+                .then((categories) => {
+                    res.render('admin/users/update', { user: user, categories: categories });
+                })
+                .catch((error => {
+                    res.redirect("/");
+                }));
+        })
+        .catch((error) => {
+            res.redirect('/');
+        });
+};
+
+exports.update = (req, res) => {
+    const id = req.body.id;
+    const email = req.body.email;
+
+    UserModel.update(
+        {email: email}, {where: {id: id}}
+    )
+    .then(() => {
+        res.redirect("/admin/users");
+    })
+};
+
+exports.delete = (req, res) => {
+    const id = req.body.id;
+
+    UserModel.destroy({
+        where: {id: id}
+    })
+    .then(() => {
+        res.redirect('/admin/users');
+    })
 }

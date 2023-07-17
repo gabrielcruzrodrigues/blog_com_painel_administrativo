@@ -35,3 +35,6 @@ module.exports = router;
 router.get("/admin/users", UserController.findAll);
 router.get("/admin/users/create", UserController.pageCreate);
 router.post("/users/create", UserController.create);
+router.get("/admin/users/edit/:id", UserController.edit);
+router.post("/users/update", UserController.update);
+router.post("/users/delete", UserController.delete);

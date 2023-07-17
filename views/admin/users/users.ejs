@@ -18,10 +18,24 @@
                 <tr>
                     <th><%= user.id %></th>
                     <th><%= user.email %></th>
+
+                    <th>
+                        <form style="display: inline;">
+                            <a href="/admin/users/edit/<%= user.id %>" class="btn btn-warning">Editar</a>
+                        </form>
+                        
+                        <form action="/users/delete" method="post" style="display: inline;" onsubmit="confirmDelete(event, this)">
+                            <input type="hidden" name="id" value="<%= user.id %>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </th>
+
                 </tr>   
             <% }); %>
         </tbody>
     </table>
 </div>
+
+<script src="../../../js/index.js"></script>
 
 <%- include ("../../partials/footer.ejs") %>

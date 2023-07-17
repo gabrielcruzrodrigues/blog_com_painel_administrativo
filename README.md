@@ -10,7 +10,8 @@ O nome condiz com o projeto, este é um blog com painel administrativo, usando o
 - Sistema de login
 - Crud
 - Uso do bcrypt para hash de senha
-- utilização de session e cookies
+- Utilização de session e cookies
+- Autenticação e autorização
 
 # Como rodar o programa: 
 - Tenha o SQL ou o Xampp instalado e configurado em sua maquina

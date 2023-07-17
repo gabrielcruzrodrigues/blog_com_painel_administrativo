@@ -29,7 +29,6 @@ router.get('/admin/articles', ArticlesController.articles);
 router.get('/articles/admin/new', ArticlesController.createArticle);
 router.get('/admin/articles/edit/:id', ArticlesController.edit);
 router.post('/articles/update', ArticlesController.update);
-module.exports = router;
 
 //User
 router.get("/admin/users", UserController.findAll);
@@ -38,3 +37,7 @@ router.post("/users/create", UserController.create);
 router.get("/admin/users/edit/:id", UserController.edit);
 router.post("/users/update", UserController.update);
 router.post("/users/delete", UserController.delete);
+router.get("/user/login", UserController.login);
+router.post("/login/authenticate", UserController.authenticate);
+
+module.exports = router;

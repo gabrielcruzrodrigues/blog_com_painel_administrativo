@@ -16,13 +16,13 @@ exports.findAll = (req, res) => {
         .catch((error) => {
             res.redirect('/');
         })
-}
+};
 
 exports.pageCreate = (req, res) => {
     CategoryModel.findAll().then((categories) => {
         res.render('admin/users/create', { categories: categories });
     })
-}
+};
 
 exports.create = (req, res) => {
     const email = req.body.email;
@@ -45,7 +45,7 @@ exports.create = (req, res) => {
             res.redirect("/admin/users/create");
         }
     })
-}
+};
 
 exports.edit = (req, res) => {
     const id = req.params.id;
@@ -116,4 +116,9 @@ exports.authenticate = (req, res) => {
                 res.redirect("/user/login");
             }
         })
+};
+
+exports.logout = (req, res) => {
+    req.session.user = undefined;
+    res.redirect('/');
 };

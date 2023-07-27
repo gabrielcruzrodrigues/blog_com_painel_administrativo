@@ -14,9 +14,10 @@ O nome condiz com o projeto, este é um blog com painel administrativo, usando o
 - Autenticação e autorização
 
 # Como rodar o programa: 
-- Tenha o SQL ou o Xampp instalado e configurado em sua maquina
-- Crie um banco chamado `blog`
 - Tenha o Node.js instalado em sua maquina
+- Tenha o MySQL ou o Xampp instalado e configurado em sua maquina
+- Crie um banco chamado `blog`
+- Configure o arquivo `connection`, alterando o usuario e a senha de acordo com a sua configuração.
 - Clone o projeto e navegue ate o diretório
 - Digite o comando `npm install`
 - Digite o comando `npm start`
